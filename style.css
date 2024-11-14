@@ -1,0 +1,405 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y margen no afecten el tamaño de los elementos */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1e1d2; /* Fondo similar al primer CSS */
+    color: #333;
+    padding: 0;
+    font-size: 18px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #d8b29e; /* Fondo navbar */
+    padding: 20px 40px; /* Mayor padding para hacer la barra más espaciosa */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para el logo y la hamburguesa */
+    z-index: 1000;
+    height: 150px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el logo */
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.menu-item a {
+    font-size: 24px; /* Aumento del tamaño de la fuente en el menú */
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;  /* Evita el subrayado en los enlaces */
+}
+
+.menu-item a:hover {
+    background-color: #f1e1d2;
+    border-radius: 5px;
+}
+
+/* Barra de búsqueda */
+.search-container {
+    position: relative;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-right: 20px;  /* Agregado: margina la barra de búsqueda desde la derecha */
+}
+
+.search-bar {
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid #d8b29e;
+    font-size: 16px;
+}
+
+/* Sección de contenido */
+.content {
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 120px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Slider */
+.slider-container {
+    margin-top: 100px;  /* Ajuste para que el slider se vea bien */
+    position: relative;
+    width: 100%;
+    max-width: 1200px;  /* Asegura que el slider no se expanda demasiado */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transición para el slider */
+    width: 100%;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column; /* Aplica columna para que el texto quede debajo de la imagen */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto; /* Se ajusta para que la altura dependa del contenido */
+    background-color: #fff;
+    position: relative;
+    flex-shrink: 0; /* Evita que las diapositivas se encojan */
+    text-align: center;
+    padding: 20px 0; /* Añadimos padding para dar espacio entre las imágenes y el texto */
+}
+
+.slide-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;  /* Asegura que la imagen cubra el contenedor */
+    margin-bottom: 20px; /* Separación entre la imagen y el texto */
+}
+
+.slide-text {
+    padding: 10px;
+}
+
+.slide-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.slide-text p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Botones de navegación del slider */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem; /* Tamaño más grande para los botones */
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Sección de Precios y Horarios */
+.pricing {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.pricing ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+/* Estilos para la sección de horario */
+.schedule {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.schedule h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.hours {
+    margin-top: 20px;
+}
+
+.bubble {
+    display: inline-block;
+    background-color: #d8b29e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 1rem;
+    margin: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bubble:hover {
+    background-color: #c29a87;
+}
+
+.schedule p {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: #333;
+}
+
+/* Estilos del pie de página */
+.footer {
+    background-color: #d8b29e;
+    padding: 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+.footer h1, .footer p {
+    color: #333;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el menú hamburguesa en dispositivos móviles */
+.hamburger-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #e5c6b5;
+    padding: 20px;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    border-radius: 5px;
+    z-index: 1;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hamburger-icon.active {
+    color: #f3d2ba;
+}
+
+.hamburger-menu a {
+    font-size: 22px;
+    color: #333;
+    padding: 12px 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none; /* Quita el subrayado de los enlaces en el menú hamburguesa */
+}
+
+.hamburger-menu a:hover {
+    background-color: #f3d2ba;
+    text-decoration: none; /* Asegura que no aparezca subrayado en el hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Disposición horizontal */
+        align-items: center; /* Centra el logo y la barra de búsqueda */
+        justify-content: space-between; /* Alinea la hamburguesa a la derecha */
+        padding: 10px 20px; /* Reduce el padding para que todo encaje mejor */
+        height: auto; /* Ajuste de altura */
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-right: auto; /* Empuja el logo hacia la izquierda */
+    }
+
+    .search-container {
+        margin-top: 0;
+        margin-right: 0; /* Elimina margen de la derecha */
+        width: 60%; /* Barra de búsqueda ocupa el 60% */
+    }
+
+    .hamburger-icon {
+        display: block;
+        margin-left: auto; /* Empuja el icono de la hamburguesa a la derecha */
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .hamburger-menu.active {
+        display: flex;
+    }
+
+    .slide-image {
+        max-height: 300px;
+    }
+
+    .slide-text h2 {
+        font-size: 22px;
+    }
+
+    .slide-text p {
+        font-size: 16px;
+    }
+}
+
+/* Ajuste para el GIF */
+.imagen-intermedia {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos para la sección de horarios */
+.schedule {
+    text-align: center;
+    padding: 25px;
+    margin: 0 auto;
+}
+
+.hours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.bubble {
+    display: inline-block;
+    background-color: #e5c6b5;
+    padding: 15px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.schedule p {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Estilo para la imagen en la página de depilación con cera */
+.depilacion-image {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 30px;
+}

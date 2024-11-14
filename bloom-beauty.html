@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacumterapia - Bloom Beauty</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html"><img class="bloom-image" src="images/bloom.jpeg" alt="Bloom Beauty Logo"></a>
+        </div>
+        <!-- Menú de navegación -->
+        <ul class="menu">
+            <li class="menu-item"><a href="bloom-beauty.html">🌸 ¿Por qué Bloom Beauty?</a></li>
+            <li class="menu-item"><a href="corrientes-rusas.html">⚡ Corrientes Rusas</a></li>
+            <li class="menu-item"><a href="cera.html">💆 Depilación con Cera</a></li>
+            <li class="menu-item"><a href="vacum.html">🌀 Vacumterapia</a></li>
+            <li class="menu-item"><a href="tarifas.html">💰 Tarifas</a></li>
+        </ul>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <input type="text" class="search-bar" id="search-bar" placeholder="Buscar productos...">
+            <p id="suggestion" class="suggestion-text"></p>
+        </div>
+
+        <!-- Menú hamburguesa -->
+        <div class="hamburger-icon">
+            <span>&#9776;</span> <!-- Ícono de la hamburguesa -->
+        </div>
+
+        <div class="hamburger-menu">
+            <a href="bloom-beauty.html">🌸 ¿Por qué Bloom Beauty?</a>
+            <a href="corrientes-rusas.html">⚡ Corrientes Rusas</a>
+            <a href="cera.html">💆 Depilación con Cera</a>
+            <a href="vacum.html">🌀 Vacumterapia</a>
+            <a href="tarifas.html">💰 Tarifas</a>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1 class="centered-title">¿Por qué Bloom Beauty? 🌸</h1>
+        <p class="centered-text">En Bloom Beauty nos enfocamos en brindarte los mejores tratamientos para tu salud y belleza. Cada sesión está pensada para mejorar tu bienestar integral. 🌺</p>
+
+        <h2 class="centered-title">Beneficios ✨</h2>
+        <ul class="centered-list">
+            <li>💪 Tonifica y reafirma la piel.</li>
+            <li>❤️ Mejora la circulación sanguínea.</li>
+            <li>🔥 Reduce la flacidez y la grasa localizada.</li>
+            <li>⏳ Resultados visibles en pocas sesiones.</li>
+        </ul>
+
+        <h2 class="centered-title">¿Por qué elegirnos? 🌟</h2>
+        <ul class="centered-list">
+            <li>Tu bienestar es nuestra prioridad 💖</li>
+            <li>Tecnología avanzada para resultados garantizados 🧪</li>
+            <li>Variedad de servicios adaptados a tus necesidades 💆‍♀️</li>
+            <li>Ambiente relajante y acogedor 🌿</li>
+            <li>Resultados visibles en pocas sesiones ⏳</li>
+            <li>Atención personalizada de profesionales capacitados 👩‍🔬</li>
+            <li>Precios accesibles y promociones 💸</li>
+        </ul>
+
+        <img src="images/kitty.gif" alt="Kitty" class="imagen-intermedia">
+    </div>
+
+    <!-- Sección de contacto -->
+    <div id="contacto" class="content footer">
+        <h1 class="centered-title">No esperes más 🕒</h1>
+        <p class="centered-title">¡Reserva ya tu cita! 📅</p>
+        <div class="contact-icons">
+            <a href="https://api.whatsapp.com/send/?phone=3043002022&text&type=phone_number&app_absent=0" target="_blank">
+                <img class="contact-icon" src="images/whatsapp-logo.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.instagram.com/bloom_.beauty_" target="_blank">
+                <img class="contact-icon" src="images/instagram-logo.png" alt="Instagram">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const searchDictionary = {
+            "bloom": "bloom-beauty.html",
+            "belleza": "bloom-beauty.html",
+            "tratamiento": "bloom-beauty.html",
+            "corrientes rusas": "corrientes-rusas.html",
+            "musculatura": "corrientes-rusas.html",
+            "tonificación": "corrientes-rusas.html",
+            "corrientes": "corrientes-rusas.html",
+            "rusas": "corrientes-rusas.html",
+            "depilación": "cera.html",
+            "cera": "cera.html",
+            "depilación con cera": "cera.html",
+            "vacumterapia": "vacum.html",
+            "vacuum": "vacum.html",
+            "terapia": "vacum.html",
+            "tarifas": "tarifas.html",
+            "precios": "tarifas.html",
+            "contacto": "contacto.html",
+            "whatsapp": "contacto.html",
+            "instagram": "contacto.html",
+            "vacum": "vacum.html",
+            "glúteos": "corrientes-rusas.html"
+        };
+
+        function levenshtein(a, b) {
+            const tmp = [];
+            let i, j, alen = a.length, blen = b.length, res;
+            if (alen === 0) { return blen; }
+            if (blen === 0) { return alen; }
+            for (i = 0; i <= alen; i++) { tmp[i] = [i]; }
+            for (j = 0; j <= blen; j++) { tmp[0][j] = j; }
+            for (i = 1; i <= alen; i++) {
+                for (j = 1; j <= blen; j++) {
+                    res = a[i - 1] === b[j - 1] ? 0 : 1;
+                    tmp[i][j] = Math.min(
+                        tmp[i - 1][j] + 1,
+                        tmp[i][j - 1] + 1,
+                        tmp[i - 1][j - 1] + res
+                    );
+                }
+            }
+            return tmp[alen][blen];
+        }
+
+        document.getElementById('search-bar').addEventListener('input', function(event) {
+            const query = this.value.trim().toLowerCase();
+            const suggestionElement = document.getElementById('suggestion');
+
+            if (searchDictionary[query]) {
+                window.location.href = searchDictionary[query];
+                suggestionElement.textContent = '';
+            } else {
+                let closestWord = '';
+                let minDistance = Infinity;
+                for (const key in searchDictionary) {
+                    const distance = levenshtein(query, key);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestWord = key;
+                    }
+                }
+
+                if (minDistance <= 3) {
+                    suggestionElement.textContent = `Quizás quisiste decir: "${closestWord}"`;
+                } else {
+                    suggestionElement.textContent = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
